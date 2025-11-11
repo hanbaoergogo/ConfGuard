@@ -16,21 +16,6 @@ from peft import get_peft_model, LoraConfig
 from transformers import DataCollatorForLanguageModeling
 import re
 
-
-def set_seed(seed):
-    """Set random seeds for reproducibility."""
-    np.random.seed(seed)
-    random.seed(seed)
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-    if torch.backends.cudnn.enabled:
-        torch.backends.cudnn.deterministic = True
-        torch.backends.cudnn.benchmark = False
-
-
-set_seed(42)
-
-
 def find_file_with_max_number(directory_path):
     """
     Find the file whose filename contains the largest integer number in a given directory.
